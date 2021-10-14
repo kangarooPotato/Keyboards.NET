@@ -3,14 +3,76 @@
 @{
     ViewData["Title"] = "Keyboard World Home page";
 }
-
 @{
-    var quote = "The";
+    var quote = "The letters in 'try' on a keyboard are much closer than the letters in 'quit'.";
 }
 
-<div>@quote<div>
+@{
+    var keyboardSwitchs = new [] {
+        new {
+            name = "click",
+            type = "blue",
+            pressure = 50
+            },
+        new {
+            name = "linear",
+            type = "red",
+            pressure = 40
+            },
+        new {
+            name = "tactile",
+            type = "blown",
+            pressure = 45
+            }
+    };
+}
+
+@for (var i = 0; i < keyboardSwitchs.Length; i++)
+{
+    var switchs = keyboardSwitchs[i];
+    <text>Key Switch name : @switchs.name <br></text>
+    <text>Key Switch type : @switchs.type <br></text>
+    <text>Key pressure : @switchs.pressure g<br><br></text>
+}
 
 <div class="text-center">
+    <div style="color: orange;">@quote</div></br >
+
     <h4>Welcome to Keyboard World!</h4>
     <p>The current time on the server is @Model.todaysDate</p>
+    <p>@@Username</p>
+    <p>e-mail me at w0770897@@myscc.ca</p>
+    &nbsp;
+    &lt;
+    <p>@DateTime.IsLeapYear(2016)</p>
+        <p>Last week this time: @(DateTime.Now - TimeSpan.FromDays(7))</p>
+            @("<span>Hello span</span>")
+
+
+
+    @{
+        var value = 1000;
+    }
+
+    @if (value % 2 == 0)    // 7 / 2 = 3
+                            // 7 % 2 = 1
+                            // 13 % 7 = 6
+                            // 6 % 2 = 0
+    {
+        <p>The value variable is even</p>
+    }
+    else if (value >= 9000)
+    {
+        <p>The value variable is OVER 9000!</p>
+    }
+    else
+    {
+        <p>The value variable is neither even not over 9000</p>
+    }
+
+    <div>
+        Email: <input type="email" id="Email" value="">
+        <button>Reggister</button>
+    </div>
+
 </div>
