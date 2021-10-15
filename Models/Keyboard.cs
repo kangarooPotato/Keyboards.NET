@@ -20,5 +20,7 @@ namespace Keyboards.Modles
         // public int switchNoise { get; set; }    
         // public string tag { get; set; }
         // public string imgUrl { get; set; }
+
+        // dotnet-aspnet-codegenerator razorpage -m KeyboardsKeyboard -dc KeyboardContext -udl -outDir Pages/KeySwitchs --referenceScriptLibraries -sqlite
     }
 }
