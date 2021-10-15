@@ -69,10 +69,24 @@
     {
         <p>The value variable is neither even not over 9000</p>
     }
-
+@using(Html.BeginForm())
+{    
     <div>
         Email: <input type="email" id="Email" value="">
-        <button>Reggister</button>
+        <button>Register</button>
     </div>
+}
 
+@try
+{
+    throw new InvalidOperationException ("You did an invalid operation");
+}
+catch (Exception ex)
+{
+    <p>The exception message: @ex.Message</p>
+}
+finally
+{
+    <p>This happens after catch finishes</p>
+}
 </div>
