@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Keyboards.Modles;
+using Keyboards.Models;
 
     public class KeyboardContext : DbContext
     {
@@ -12,5 +12,5 @@ using Keyboards.Modles;
         {
         }
 
-        public DbSet<Keyboards.Modles.Keyboard> Keyboard { get; set; }
+        public DbSet<Keyboards.Models.Keyboard> Keyboard { get; set; }
     }

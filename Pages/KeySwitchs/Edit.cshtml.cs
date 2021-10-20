@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
-using Keyboards.Modles;
+using Keyboards.Models;
 
 namespace Keyboards.Pages.KeySwitchs
 {
