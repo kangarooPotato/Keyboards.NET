@@ -25,7 +25,7 @@ namespace Keyboards.Pages.KeySwitchs
         {
             if (id == null)
             {
-                return NotFound();
+                return RedirectToPage("./Index");
             }
 
             Keyboard = await _context.Keyboard.FirstOrDefaultAsync(m => m.ID == id);

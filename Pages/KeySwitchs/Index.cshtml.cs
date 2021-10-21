@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using Keyboards.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Keyboards.Pages.KeySwitchs
 {
@@ -19,10 +20,29 @@ namespace Keyboards.Pages.KeySwitchs
         }
 
         public IList<Keyboard> Keyboard { get;set; }
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
+        public SelectList Type { get; set; }
+        [BindProperty(SupportsGet = true)]
+        public string KeyboardType { get; set; }
 
         public async Task OnGetAsync()
         {
-            Keyboard = await _context.Keyboard.ToListAsync();
+        // Use LINQ to get list of genres.
+        IQueryable<string> TypeQuery = from m in _context.Keyboard
+                                    orderby m.Type
+                                    select m.Type;    
+            // Keyboard = await _context.Keyboard.ToListAsync();
+
+        var Keyboards = from m in _context.Keyboard
+                    select m;
+        if (!string.IsNullOrEmpty(SearchString))
+        {
+            Keyboards = Keyboards.Where(s => s.Type.Contains(SearchString));
+        }
+
+        Keyboard = await Keyboards.ToListAsync();            
         }
     }
 }
+
