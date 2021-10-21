@@ -38,12 +38,12 @@ namespace Keyboards.Models
                     {
                         Color = "Brown",
                         ReleaseDate = DateTime.Parse("1989-2-12"),
-                        Type = "Non-Click",
+                        Type = "Tactile",
                         Pressure = 50
                     },
                     new Keyboard
                     {
-                        Color = "Blakc",
+                        Color = "Black",
                         ReleaseDate = DateTime.Parse("1989-2-12"),
                         Type = "Linear",
                         Pressure = 65

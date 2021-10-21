@@ -22,14 +22,14 @@ namespace Keyboards.Pages.KeySwitchs
         [BindProperty]
         public Keyboard Keyboard { get; set; }
 
-        public async Task<IActionResult> OnGetAsync(int? id)
+        public async Task<IActionResult> OnGetAsync(int? special)
         {
-            if (id == null)
+            if (special == null)
             {
                 return NotFound();
             }
 
-            Keyboard = await _context.Keyboard.FirstOrDefaultAsync(m => m.ID == id);
+            Keyboard = await _context.Keyboard.FirstOrDefaultAsync(m => m.ID == special);
 
             if (Keyboard == null)
             {
@@ -68,9 +68,9 @@ namespace Keyboards.Pages.KeySwitchs
             return RedirectToPage("./Index");
         }
 
-        private bool KeyboardExists(int id)
+        private bool KeyboardExists(int special)
         {
-            return _context.Keyboard.Any(e => e.ID == id);
+            return _context.Keyboard.Any(e => e.ID == special);
         }
     }
 }

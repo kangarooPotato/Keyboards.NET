@@ -1,6 +1,8 @@
 using System;
 using System.ComponentModel.DataAnnotations;
-namespace Keyboards.Modles
+using System.ComponentModel.DataAnnotations.Schema;
+
+namespace Keyboards.Models
 
 {
     public class Keyboard
@@ -9,6 +11,7 @@ namespace Keyboards.Modles
         public int ID { get; set; }
         public string Color { get; set; }
 
+        [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
         public string Type { get; set; }
