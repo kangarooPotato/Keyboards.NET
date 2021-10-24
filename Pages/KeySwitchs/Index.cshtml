@@ -13,7 +13,12 @@
 
 <form>
     <p>
-        Title: <input type="text" asp-for="SearchString" />
+
+         <select asp-for="KeyboardType" asp-items="Model.Type">
+            <option value="">All</option>
+        </select>
+        
+        Switch: <input type="text" asp-for="SearchString" />
         <input type="submit" value="Filter" />
     </p>
 </form>

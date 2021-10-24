@@ -32,14 +32,20 @@ namespace Keyboards.Pages.KeySwitchs
         IQueryable<string> TypeQuery = from m in _context.Keyboard
                                     orderby m.Type
                                     select m.Type;    
-            // Keyboard = await _context.Keyboard.ToListAsync();
-
+        
+        // Keyboard = await _context.Keyboard.ToListAsync();
         var Keyboards = from m in _context.Keyboard
                     select m;
         if (!string.IsNullOrEmpty(SearchString))
         {
             Keyboards = Keyboards.Where(s => s.Type.Contains(SearchString));
         }
+        if (!string.IsNullOrEmpty(KeyboardType))
+        {
+            Keyboards = Keyboards.Where(x => x.Type == KeyboardType);
+        }
+
+        Type = new SelectList(await TypeQuery.Distinct().ToListAsync());
 
         Keyboard = await Keyboards.ToListAsync();            
         }
