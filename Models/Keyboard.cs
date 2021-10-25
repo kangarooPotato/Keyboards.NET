@@ -9,12 +9,17 @@ namespace Keyboards.Models
     {
         
         public int ID { get; set; }
+        [StringLength(60, MinimumLength = 3)]
+        [Required]
         public string Color { get; set; }
-
         [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
         public DateTime ReleaseDate { get; set; }
+        
+        [Display(Name = "The type of the switch")]
         public string Type { get; set; }
+        
+        [Range(1,200)]
         public decimal Pressure { get; set; }
     
         // public string switchColor { get; set; } // this is and auto property
