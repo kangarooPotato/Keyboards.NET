@@ -14,6 +14,7 @@ namespace Keyboards.Models
         public string Color { get; set; }
         [Display(Name = "Release Date")]
         [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
         public DateTime ReleaseDate { get; set; }
         
         [Display(Name = "The type of the switch")]
